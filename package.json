@@ -1,7 +1,31 @@
 {
   "name": "kaalaman",
   "version": "0.1.0",
+  "description": "Context-aware AI study companion for bilingual, document-driven learning workflows.",
   "private": true,
+  "author": "Kyle",
+  "license": "MIT",
+  "homepage": "https://github.com/Jetsetter123/kaalam",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jetsetter123/kaalam.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jetsetter123/kaalam/issues"
+  },
+  "keywords": [
+    "ai",
+    "education",
+    "nextjs",
+    "openai",
+    "study-companion",
+    "tagalog",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=20.9.0",
+    "npm": ">=10"
+  },
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1 --port 3000",
     "dev:webpack": "next dev --webpack --hostname 127.0.0.1 --port 3000",
