@@ -1,14 +1,13 @@
 {
   "name": "kaalaman",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Context-aware AI study companion for bilingual, document-driven learning workflows.",
-  "private": true,
   "author": "Kyle",
   "license": "MIT",
   "homepage": "https://github.com/Jetsetter123/kaalam",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jetsetter123/kaalam.git"
+    "url": "git+https://github.com/Jetsetter123/kaalam.git"
   },
   "bugs": {
     "url": "https://github.com/Jetsetter123/kaalam/issues"
@@ -26,18 +25,37 @@
     "node": ">=20.9.0",
     "npm": ">=10"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "app",
+    "public",
+    "README.md",
+    "LICENSE",
+    "eslint.config.mjs",
+    "next.config.ts",
+    "postcss.config.cjs",
+    "tailwind.config.ts",
+    "tsconfig.json"
+  ],
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1 --port 3000",
     "dev:webpack": "next dev --webpack --hostname 127.0.0.1 --port 3000",
     "build": "next build",
+    "build:static": "next build && next export",
     "build:debug-memory": "next build --experimental-debug-memory-usage",
     "start": "next start --hostname 127.0.0.1 --port 3000",
+    "serve:static": "npx serve out",
+    "deploy:vercel": "vercel --prod",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.21.0",
     "mammoth": "^1.12.0",
     "next": "16.2.2",
+    "next-auth": "^4.24.14",
     "openai": "^6.33.0",
     "pdf-parse": "^2.4.5",
     "react": "19.2.4",

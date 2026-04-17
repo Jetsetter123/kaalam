@@ -26,9 +26,11 @@ export async function POST(request: NextRequest) {
       }, { status: 500 });
     }
 
-    // Use Gemini API - Using Gemini 2.5 Flash (recommended for speed and cost)
+    // Initialize Gemini 2.5 Flash model
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+    const model = genAI.getGenerativeModel({ 
+      model: 'gemini-2.5-flash'
+    });
 
     // Build the prompt with context if available
     let fullPrompt = trimmedMessage;

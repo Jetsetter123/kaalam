@@ -13,14 +13,16 @@ const normalizeText = (value: string) =>
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 
-const truncateText = (value: string) => {
+const processText = (value: string) => {
   const normalized = normalizeText(value);
-
-  if (normalized.length <= MAX_TEXT_LENGTH) {
-    return normalized;
-  }
-
-  return `${normalized.slice(0, MAX_TEXT_LENGTH)}\n\n[Notes truncated to ${MAX_TEXT_LENGTH} characters]`;
+  return {
+    text:
+      normalized.length <= MAX_TEXT_LENGTH
+        ? normalized
+        : `${normalized.slice(0, MAX_TEXT_LENGTH)}\n\n[Notes truncated to ${MAX_TEXT_LENGTH} characters]`,
+    truncated: normalized.length > MAX_TEXT_LENGTH,
+    documentLength: normalized.length,
+  };
 };
 
 export async function POST(request: NextRequest) {
@@ -33,10 +35,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (file.size > MAX_FILE_SIZE_BYTES) {
-      return NextResponse.json(
-        { error: 'File is too large. Please upload a file up to 8 MB.' },
-        { status: 413 },
-      );
+      return NextResponse.json({ error: 'File is too large. Please upload a file up to 8 MB.' }, { status: 413 });
     }
 
     let text = '';
@@ -58,15 +57,14 @@ export async function POST(request: NextRequest) {
       const buffer = Buffer.from(await file.arrayBuffer());
       const result = await mammoth.extractRawText({ buffer });
       text = result.value;
-    } else if (file.type === 'text/plain' || extension === 'txt') {
-      text = await file.text();
-    } else if (file.type === 'text/markdown' || extension === 'md') {
+    } else if (file.type === 'text/plain' || extension === 'txt' || file.type === 'text/markdown' || extension === 'md') {
       text = await file.text();
     } else {
       return NextResponse.json({ error: 'Unsupported file type' }, { status: 400 });
     }
 
-    return NextResponse.json({ text: truncateText(text), filename: file.name });
+    const processed = processText(text);
+    return NextResponse.json({ text: processed.text, filename: file.name, truncated: processed.truncated, documentLength: processed.documentLength });
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'Failed to process file' }, { status: 500 });

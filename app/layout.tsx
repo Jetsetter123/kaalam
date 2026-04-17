@@ -1,18 +1,20 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import { Providers } from './providers';
 
 export const metadata: Metadata = {
-  title: 'Kaalaman - AI Study Companion',
-  description: 'AI-powered study companion tailored for Philippine students. Upload notes, ask questions in Tagalog or English, and get intelligent summaries, quizzes, and explanations.',
+  title: 'Kaalaman | Bilingual Study Intelligence',
+  description:
+    'Professional bilingual study workspace for document-driven learning. Upload notes, ask in English or Tagalog, and generate summaries, quizzes, explanations, and translations from one interface.',
   keywords: ['study', 'AI', 'Philippine', 'Tagalog', 'education', 'learning'],
   manifest: '/manifest.json',
   appleWebApp: {
     title: 'Kaalaman',
-    statusBarStyle: 'black-translucent',
+    statusBarStyle: 'default',
   },
   openGraph: {
-    title: 'Kaalaman - AI Study Companion',
-    description: 'Smart study helper for Filipino students',
+    title: 'Kaalaman | Bilingual Study Intelligence',
+    description: 'Document-aware study assistance for English and Tagalog learning workflows.',
     type: 'website',
   },
 };
@@ -23,7 +25,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
   userScalable: true,
   viewportFit: 'cover',
-  themeColor: '#0f172a',
+  themeColor: '#050505',
   colorScheme: 'dark',
 };
 
@@ -35,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

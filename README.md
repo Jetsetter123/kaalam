@@ -3,6 +3,11 @@
 <div align="center">
   <p><strong>Context-aware AI study companion for bilingual, document-driven learning workflows.</strong></p>
   <p>Built with Next.js 16, React 19, TypeScript, OpenAI, PDF/DOCX parsing, speech interfaces, and a local Lite Mode fallback.</p>
+  
+  <p><strong>⚠️ IMPORTANT: Running locally uses 500+ MB RAM!</strong></p>
+  <p><strong>📖 <a href="README-FIRST.md">READ THIS FIRST</a> to learn how to use it with 0 RAM usage</strong></p>
+  <p><strong>🚀 <a href="START-HERE.html">Or click here for interactive setup guide</a></strong></p>
+  
   <p>
     <img src="https://img.shields.io/github/actions/workflow/status/Jetsetter123/kaalam/ci.yml?branch=main&style=for-the-badge&label=CI" alt="CI status" />
     <img src="https://img.shields.io/github/v/release/Jetsetter123/kaalam?style=for-the-badge&label=Release" alt="GitHub release" />
@@ -77,6 +82,25 @@ Student User
 
 ## Quick Start
 
+### Option A: Use Remote Deployment (Recommended - Saves RAM)
+
+**Don't want to run it locally?** Deploy to Vercel for free and use it from anywhere without consuming your local RAM:
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy (follow prompts)
+vercel
+
+# Add OPENAI_API_KEY in Vercel dashboard
+# Then access your app at the provided URL
+```
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions and other hosting options.
+
+### Option B: Run Locally (Uses ~500MB RAM)
+
 ```bash
 npm install
 ```
@@ -94,6 +118,10 @@ npm run dev
 ```
 
 Open `http://localhost:3000`.
+
+### Option C: Use Lite Mode (No Server Needed)
+
+Toggle "Lite Mode" in the app to use browser-only processing without any server or API calls.
 
 ## Environment Model
 

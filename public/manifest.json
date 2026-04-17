@@ -1,11 +1,11 @@
 {
-  "name": "Kaalaman - AI Study Companion",
+  "name": "Kaalaman | Bilingual Study Intelligence",
   "short_name": "Kaalaman",
-  "description": "AI-powered study companion for Philippine students",
+  "description": "Professional document-aware study workspace for English and Tagalog learning.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "background_color": "#050505",
+  "theme_color": "#050505",
   "icons": [
     {
       "src": "/icon-192.png",

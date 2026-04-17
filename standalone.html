@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaalaman - AI Study Companion</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gradient-bg {
+      background: linear-gradient(45deg, #1e3a8a, #7c3aed, #db2777);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .text-gradient {
+      background: linear-gradient(to right, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 min-h-screen">
+  <div class="fixed inset-0 -z-10">
+    <div class="gradient-bg absolute inset-0 opacity-60"></div>
+  </div>
+
+  <header class="border-b border-white/10 bg-white/5 backdrop-blur-xl">
+    <div class="mx-auto max-w-7xl px-4 py-6">
+      <div class="flex items-center gap-3">
+        <div class="text-4xl">📚</div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-blue-300">Kaalaman</p>
+          <h1 class="text-gradient text-2xl font-bold">AI Study Companion</h1>
+        </div>
+      </div>
+      <p class="mt-2 text-sm text-slate-300">Upload notes, ask in Tagalog or English, get smart summaries & quizzes</p>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-7xl px-4 py-8">
+    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+      <div class="text-center space-y-4">
+        <div class="text-6xl">🚀</div>
+        <h2 class="text-2xl font-bold text-white">Configure Remote API</h2>
+        <p class="text-slate-300 max-w-2xl mx-auto">
+          To use Kaalaman without running it locally, you need to deploy it to a hosting service first.
+        </p>
+        
+        <div class="mt-8 space-y-6 text-left max-w-3xl mx-auto">
+          <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+            <h3 class="text-xl font-semibold text-white mb-4">📋 Setup Instructions</h3>
+            <ol class="space-y-3 text-slate-300 text-sm">
+              <li><strong>1. Deploy to Vercel (Recommended):</strong>
+                <ul class="ml-6 mt-2 space-y-1 list-disc">
+                  <li>Install Vercel CLI: <code class="bg-black/30 px-2 py-1 rounded">npm i -g vercel</code></li>
+                  <li>Run: <code class="bg-black/30 px-2 py-1 rounded">vercel</code></li>
+                  <li>Follow the prompts to deploy</li>
+                  <li>Add your OpenAI API key in Vercel dashboard → Settings → Environment Variables</li>
+                </ul>
+              </li>
+              <li><strong>2. Update Configuration:</strong>
+                <ul class="ml-6 mt-2 space-y-1 list-disc">
+                  <li>Open <code class="bg-black/30 px-2 py-1 rounded">.env.local</code></li>
+                  <li>Set <code class="bg-black/30 px-2 py-1 rounded">NEXT_PUBLIC_API_URL</code> to your deployed URL</li>
+                  <li>Example: <code class="bg-black/30 px-2 py-1 rounded">NEXT_PUBLIC_API_URL=https://kaalaman.vercel.app</code></li>
+                </ul>
+              </li>
+              <li><strong>3. Build Static Version:</strong>
+                <ul class="ml-6 mt-2 space-y-1 list-disc">
+                  <li>Run: <code class="bg-black/30 px-2 py-1 rounded">npm run build</code></li>
+                  <li>Run: <code class="bg-black/30 px-2 py-1 rounded">npx serve out</code></li>
+                  <li>Or open <code class="bg-black/30 px-2 py-1 rounded">out/index.html</code> directly in your browser</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <div class="bg-amber-500/10 rounded-xl p-6 border border-amber-500/20">
+            <h3 class="text-xl font-semibold text-amber-300 mb-3">⚠️ Alternative: Use Lite Mode</h3>
+            <p class="text-slate-300 text-sm">
+              If you don't want to deploy, you can use <strong>Lite Mode</strong> which works entirely in your browser 
+              without any server. It provides basic summaries, quizzes, and explanations using local processing.
+              Just toggle "Lite Mode" on in the app interface.
+            </p>
+          </div>
+
+          <div class="bg-blue-500/10 rounded-xl p-6 border border-blue-500/20">
+            <h3 class="text-xl font-semibold text-blue-300 mb-3">💡 Other Deployment Options</h3>
+            <ul class="space-y-2 text-slate-300 text-sm list-disc ml-6">
+              <li><strong>Netlify:</strong> Connect your GitHub repo and deploy automatically</li>
+              <li><strong>Railway:</strong> Deploy with one click from GitHub</li>
+              <li><strong>Render:</strong> Free tier available for static sites</li>
+              <li><strong>GitHub Pages:</strong> Export static site with <code class="bg-black/30 px-1 rounded">next export</code></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a href="https://vercel.com/new" target="_blank" rel="noopener noreferrer" 
+             class="inline-block bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold px-8 py-3 rounded-full hover:from-blue-500 hover:to-blue-400 transition">
+            🚀 Deploy to Vercel Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/10 bg-white/5 px-4 py-6 text-center text-sm text-slate-400 backdrop-blur-md mt-12">
+    <p>Kaalaman © 2026 • Made for Filipino students</p>
+  </footer>
+</body>
+</html>
