@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     preloadEntriesOnStart: false,
     webpackMemoryOptimizations: true,
   },
-  serverExternalPackages: ['mammoth', 'openai', 'pdf-parse'],
+  serverExternalPackages: ['mammoth', 'pdf-parse'],
 };
 
 export default nextConfig;
