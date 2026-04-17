@@ -161,17 +161,17 @@ export default function Home() {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-gray-50">
+    <div className="flex h-screen w-screen overflow-hidden bg-[#0a0a0a]">
       {/* Auth Modal */}
       {showAuth && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-2xl animate-slide-up">
-            <div className="mb-6 text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-600">
-                <span className="text-3xl font-bold text-white">K</span>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md animate-fade-in">
+          <div className="w-full max-w-md rounded-2xl glass p-8 shadow-2xl animate-slide-up">
+            <div className="mb-8 text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-white">
+                <span className="text-3xl font-bold text-black">K</span>
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">Sign in to Kaalaman</h2>
-              <p className="mt-2 text-sm text-gray-600">Choose your sign-in method</p>
+              <h2 className="text-2xl font-bold text-white">Welcome Back</h2>
+              <p className="mt-2 text-sm text-zinc-400">Sign in to continue</p>
             </div>
 
             <div className="space-y-3">
@@ -201,7 +201,7 @@ export default function Home() {
 
             <button
               onClick={() => setShowAuth(false)}
-              className="mt-4 w-full rounded-lg px-4 py-2 text-sm text-gray-600 hover:bg-gray-100"
+              className="mt-6 w-full rounded-xl px-4 py-2 text-sm text-zinc-400 hover:bg-zinc-800/50 transition"
             >
               Continue as Guest
             </button>
@@ -211,7 +211,7 @@ export default function Home() {
 
       {/* Sidebar */}
       <aside 
-        className={`flex h-full flex-col border-r border-gray-200 bg-white transition-all duration-300 ${
+        className={`flex h-full flex-col border-r border-zinc-800 bg-[#0a0a0a] transition-all duration-300 ${
           sidebarOpen ? 'w-80' : 'w-0 opacity-0'
         }`}
       >
@@ -221,17 +221,17 @@ export default function Home() {
             <div className="mb-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
-                    <span className="text-xl font-bold text-white">K</span>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white">
+                    <span className="text-xl font-bold text-black">K</span>
                   </div>
                   <div>
-                    <h1 className="text-xl font-bold text-gray-900">Kaalaman</h1>
-                    <p className="text-xs text-gray-500">AI Assistant</p>
+                    <h1 className="text-xl font-bold text-white">Kaalaman</h1>
+                    <p className="text-xs text-zinc-500">AI Assistant</p>
                   </div>
                 </div>
                 <button
                   onClick={() => setSidebarOpen(false)}
-                  className="rounded-lg p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600"
+                  className="rounded-lg p-2 text-zinc-400 hover:bg-zinc-800 hover:text-white transition"
                 >
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -244,17 +244,17 @@ export default function Home() {
             {session?.user ? (
               <div className="mb-6 card p-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-600 font-semibold">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-zinc-700 text-white font-semibold">
                     {session.user.name?.charAt(0).toUpperCase() || 'U'}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="truncate font-semibold text-gray-900">{session.user.name || 'User'}</p>
-                    <p className="truncate text-xs text-gray-500">{session.user.email}</p>
+                    <p className="truncate font-semibold text-white">{session.user.name || 'User'}</p>
+                    <p className="truncate text-xs text-zinc-400">{session.user.email}</p>
                   </div>
                 </div>
                 <button
                   onClick={() => signOut()}
-                  className="mt-3 w-full rounded-lg border border-gray-200 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  className="mt-3 w-full rounded-lg border border-zinc-700 px-4 py-2 text-sm text-zinc-300 hover:bg-zinc-800 transition"
                 >
                   Sign Out
                 </button>
@@ -287,18 +287,18 @@ export default function Home() {
               </button>
               
               {fileName && (
-                <div className="mt-3 rounded-lg border border-green-200 bg-green-50 px-3 py-2">
-                  <p className="text-xs font-semibold text-green-800">Document loaded</p>
-                  <p className="mt-1 truncate text-xs text-green-600">{fileName}</p>
+                <div className="mt-3 rounded-lg border border-zinc-700 bg-zinc-800/50 px-3 py-2">
+                  <p className="text-xs font-semibold text-zinc-300">Document loaded</p>
+                  <p className="mt-1 truncate text-xs text-zinc-500">{fileName}</p>
                 </div>
               )}
             </div>
 
             {/* Info */}
             <div className="card flex-1 p-4">
-              <h3 className="mb-2 font-semibold text-gray-900">About</h3>
-              <p className="text-sm leading-relaxed text-gray-600">
-                Kaalaman is an AI-powered assistant using Google Gemini. Ask any question or upload documents for context-aware responses.
+              <h3 className="mb-2 font-semibold text-white">About</h3>
+              <p className="text-sm leading-relaxed text-zinc-400">
+                Kaalaman is powered by Google Gemini 2.5 Flash. Ask anything or upload documents for context-aware responses.
               </p>
             </div>
           </div>
@@ -308,12 +308,12 @@ export default function Home() {
       {/* Main Chat Area */}
       <main className="flex flex-1 flex-col">
         {/* Header */}
-        <header className="flex items-center justify-between border-b border-gray-200 bg-white px-6 py-4">
+        <header className="flex items-center justify-between border-b border-zinc-800 bg-[#0a0a0a] px-6 py-4">
           <div className="flex items-center gap-4">
             {!sidebarOpen && (
               <button
                 onClick={() => setSidebarOpen(true)}
-                className="rounded-lg p-2 text-gray-600 hover:bg-gray-100"
+                className="rounded-lg p-2 text-zinc-400 hover:bg-zinc-800 hover:text-white transition"
               >
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -322,51 +322,51 @@ export default function Home() {
             )}
             
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
-                <span className="text-lg font-bold text-white">K</span>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white">
+                <span className="text-lg font-bold text-black">K</span>
               </div>
               <div>
-                <p className="font-semibold text-gray-900">Kaalaman AI</p>
-                <p className="text-xs text-gray-500">Powered by Google Gemini</p>
+                <p className="font-semibold text-white">Kaalaman AI</p>
+                <p className="text-xs text-zinc-500">Powered by Gemini 2.5 Flash</p>
               </div>
             </div>
           </div>
 
           {fileName && (
-            <div className="flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 px-3 py-2">
-              <div className="h-2 w-2 rounded-full bg-green-500"></div>
-              <span className="text-sm font-medium text-green-700">Document loaded</span>
+            <div className="flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-800/50 px-3 py-2">
+              <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+              <span className="text-sm font-medium text-zinc-300">Document loaded</span>
             </div>
           )}
         </header>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto bg-gray-50">
+        <div className="flex-1 overflow-y-auto bg-[#0a0a0a]">
           <div className="mx-auto max-w-4xl px-6 py-8">
             {messages.length === 0 ? (
-              <div className="flex h-full min-h-[500px] flex-col items-center justify-center text-center">
-                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-blue-600">
-                  <span className="text-4xl font-bold text-white">K</span>
+              <div className="flex h-full min-h-[500px] flex-col items-center justify-center text-center animate-fade-in">
+                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-white animate-glow">
+                  <span className="text-4xl font-bold text-black">K</span>
                 </div>
-                <h2 className="mb-3 text-3xl font-bold text-gray-900">Welcome to Kaalaman</h2>
-                <p className="mb-8 max-w-lg text-lg text-gray-600">
-                  Your AI-powered knowledge assistant. Ask me anything or upload documents for context-aware answers.
+                <h2 className="mb-3 text-3xl font-bold text-white">Welcome to Kaalaman</h2>
+                <p className="mb-8 max-w-lg text-lg text-zinc-400">
+                  Your AI-powered knowledge assistant. Ask me anything.
                 </p>
                 <div className="grid max-w-2xl grid-cols-1 gap-4 md:grid-cols-3">
-                  <div className="card p-4 text-left">
+                  <div className="card card-hover p-4 text-left">
                     <div className="mb-2 text-2xl">📄</div>
-                    <h3 className="mb-1 font-semibold text-gray-900">Upload</h3>
-                    <p className="text-sm text-gray-600">Add documents for context</p>
+                    <h3 className="mb-1 font-semibold text-white">Upload</h3>
+                    <p className="text-sm text-zinc-400">Add documents for context</p>
                   </div>
-                  <div className="card p-4 text-left">
+                  <div className="card card-hover p-4 text-left">
                     <div className="mb-2 text-2xl">💬</div>
-                    <h3 className="mb-1 font-semibold text-gray-900">Ask</h3>
-                    <p className="text-sm text-gray-600">Type or speak your question</p>
+                    <h3 className="mb-1 font-semibold text-white">Ask</h3>
+                    <p className="text-sm text-zinc-400">Type or speak your question</p>
                   </div>
-                  <div className="card p-4 text-left">
+                  <div className="card card-hover p-4 text-left">
                     <div className="mb-2 text-2xl">🎤</div>
-                    <h3 className="mb-1 font-semibold text-gray-900">Voice</h3>
-                    <p className="text-sm text-gray-600">Use voice recognition</p>
+                    <h3 className="mb-1 font-semibold text-white">Voice</h3>
+                    <p className="text-sm text-zinc-400">Use voice recognition</p>
                   </div>
                 </div>
               </div>
@@ -378,19 +378,19 @@ export default function Home() {
                     className={`animate-slide-up flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`max-w-3xl rounded-lg px-6 py-4 ${
+                      className={`max-w-3xl rounded-2xl px-6 py-4 ${
                         msg.isUser
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-white border border-gray-200 text-gray-900'
+                          ? 'bg-white text-black'
+                          : 'bg-zinc-900 border border-zinc-800 text-white'
                       }`}
                     >
                       <div className="mb-2 flex items-center gap-2">
                         <div className={`h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold ${
-                          msg.isUser ? 'bg-blue-700' : 'bg-gray-200 text-gray-700'
+                          msg.isUser ? 'bg-black text-white' : 'bg-zinc-700 text-white'
                         }`}>
                           {msg.isUser ? 'U' : 'K'}
                         </div>
-                        <span className={`text-xs ${msg.isUser ? 'text-blue-100' : 'text-gray-500'}`}>
+                        <span className={`text-xs ${msg.isUser ? 'text-black/60' : 'text-zinc-500'}`}>
                           {new Date(msg.timestamp).toLocaleTimeString()}
                         </span>
                       </div>
@@ -405,27 +405,27 @@ export default function Home() {
         </div>
 
         {/* Input */}
-        <div className="border-t border-gray-200 bg-white px-6 py-4">
+        <div className="border-t border-zinc-800 bg-[#0a0a0a] px-6 py-4">
           <div className="mx-auto max-w-4xl">
-            <div className="flex items-end gap-3 rounded-lg border border-gray-200 bg-white p-3">
+            <div className="flex items-end gap-3 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-3">
               <textarea
                 ref={textareaRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask anything... (Shift+Enter for new line)"
+                placeholder="Ask anything..."
                 disabled={loading}
                 rows={1}
-                className="flex-1 resize-none bg-transparent text-gray-900 placeholder-gray-400 outline-none"
+                className="flex-1 resize-none bg-transparent text-white placeholder-zinc-500 outline-none"
                 style={{ maxHeight: '150px' }}
               />
               
               <button
                 onClick={isListening ? stopVoiceRecognition : startVoiceRecognition}
-                className={`rounded-lg px-4 py-2 font-semibold transition ${
+                className={`rounded-xl px-4 py-2 font-semibold transition ${
                   isListening
-                    ? 'bg-red-100 text-red-600 hover:bg-red-200'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-red-500 text-white hover:bg-red-600'
+                    : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
                 }`}
               >
                 {isListening ? 'Stop' : 'Voice'}
@@ -440,8 +440,8 @@ export default function Home() {
               </button>
             </div>
             
-            <p className="mt-2 text-center text-xs text-gray-500">
-              Powered by Google Gemini • Press Enter to send
+            <p className="mt-2 text-center text-xs text-zinc-600">
+              Powered by Google Gemini 2.5 Flash • Press Enter to send
             </p>
           </div>
         </div>
