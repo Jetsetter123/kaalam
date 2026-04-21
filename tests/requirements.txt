@@ -1,0 +1,11 @@
+# Python Testing Dependencies for Kaalaman
+
+# HTTP requests
+requests>=2.31.0
+
+# Testing framework (optional, for advanced testing)
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# For colored output (optional)
+colorama>=0.4.6
